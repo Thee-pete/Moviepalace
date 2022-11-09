@@ -8,6 +8,7 @@ import com.apps.moviepalace.model.Movie
 
 @Database(entities = [Movie::class], version = 1)
 abstract class Moviedatabase: RoomDatabase() {
+
     abstract fun movieDao(): RoomDao
 
     companion object{

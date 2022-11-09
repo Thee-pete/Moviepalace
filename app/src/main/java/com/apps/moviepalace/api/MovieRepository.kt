@@ -35,7 +35,7 @@ private val roomDao: RoomDao) {
             }
 
             override fun onFailure(call: Call<MoviesList>, t: Throwable) {
-                
+
             }
 
         })

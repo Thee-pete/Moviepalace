@@ -2,6 +2,8 @@ package com.apps.moviepalace.hilt
 
 import android.app.Application
 import com.apps.moviepalace.api.ApiInterface
+import com.apps.moviepalace.room.Moviedatabase
+import com.apps.moviepalace.room.RoomDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,16 +15,21 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class App {
+
+    val api_key:String="f146b5c490bfc0a759924c0dc94b96f6"
+    val BASE_URL = "https://api.themoviedb.org/3/movie/"
+
+
     @Provides
     @Singleton
-    fun getMovieDatabase(){
-
+    fun getMovieDatabase(context: Application): Moviedatabase{
+        return Moviedatabase.getDatabase(context)
     }
-    fun MovieDao(){
-
+    @Provides
+    @Singleton
+    fun getMovieDao(movieDatabase: Moviedatabase):RoomDao{
+        return movieDatabase.movieDao()
     }
-
-    val BASE_URL = "https://api.themoviedb.org/3/movie/"
 
     @Provides
     @Singleton
