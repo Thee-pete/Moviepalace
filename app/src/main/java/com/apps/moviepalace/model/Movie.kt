@@ -9,5 +9,5 @@ data class Movie (
     var id : String,
     var original_title : String,
     var poster_path : String,
-    var backdrop_path:String
+    var release_date:String
 )
