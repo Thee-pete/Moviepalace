@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface ApiInterface {
 
-    @GET("movies")
+    @GET("movie/popular")
     fun getMovies(@Query("")query: String): Call<MoviesList>
 }

@@ -18,7 +18,7 @@ class App {
     fun getMovieDatabase(){
 
     }
-    fun getMovieDao(){
+    fun MovieDao(){
 
     }
 
