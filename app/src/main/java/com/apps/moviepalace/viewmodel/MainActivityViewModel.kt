@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.apps.moviepalace.api.MovieRepository
 import com.apps.moviepalace.model.Movie
+import com.apps.moviepalace.model.MovieDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -13,9 +14,11 @@ class MainActivityViewModel @Inject constructor(private val movieRepository: Mov
     fun getMoviesList(): LiveData<List<Movie>>{
         return movieRepository.getMovies()
     }
-//f146b5c490bfc0a759924c0dc94b96f6
+
     fun apiCall(){
-        movieRepository.apiCall("f146b5c490bfc0a759924c0dc94b96f6")
+        movieRepository.apiCall(1)
     }
+
+
 
 }

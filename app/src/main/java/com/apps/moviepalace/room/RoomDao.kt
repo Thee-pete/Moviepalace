@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.apps.moviepalace.model.Movie
+import com.apps.moviepalace.model.MovieDetail
 
 @Dao
 interface RoomDao {
@@ -15,5 +16,11 @@ interface RoomDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovies(movie : Movie)
+
+    @Query("SELECT * FROM movieDetail")
+    fun getMovieDetails(): LiveData<MovieDetail>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertMovieDetail(movieDetail: MovieDetail)
 
 }

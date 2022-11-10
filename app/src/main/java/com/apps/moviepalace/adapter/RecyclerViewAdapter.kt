@@ -50,6 +50,8 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder
     }
 
     override fun getItemCount(): Int {
+
+        if (movies == null)return 0
         return  movies?.size!!
     }
 }
