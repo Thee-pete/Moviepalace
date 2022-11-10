@@ -1,31 +1,36 @@
 package com.apps.moviepalace.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
 import androidx.recyclerview.widget.RecyclerView
+import com.apps.moviepalace.MovieDetailActivity
 import com.apps.moviepalace.R
 import com.apps.moviepalace.model.Movie
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_item.view.*
 import java.lang.reflect.Type
 
-class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
     private var movies: List<Movie>? = null
     fun setMovies(movies: List<Movie>?){
         this.movies = movies
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerViewAdapter.ViewHolder{
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):RecyclerViewAdapter.MyViewHolder{
         val view  = LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
 
-        return ViewHolder(view)
+        return MyViewHolder(view)
     }
 
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
+
+
 
         val poster_path = view.poster_path
         val original_title = view.original_title
@@ -39,14 +44,20 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder
                 .load(movie.poster_path)
                 .into(poster_path)
 
+        itemView.setOnClickListener{
+            
+        }
+
 
 
         }
 
     }
 
-    override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, position: Int){
+    override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int){
         holder.bind(movies?.get(position)!!)
+
+
     }
 
     override fun getItemCount(): Int {
