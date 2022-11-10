@@ -8,11 +8,14 @@ import javax.inject.Inject
 
 class MovieDetailViewModel  @Inject constructor(private val movieRepository: MovieRepository): ViewModel()  {
 
-    fun detailCall(){
-        movieRepository.detailCall("en-Us")
-    }
+
+
 
     fun getMovieDetails(): LiveData<MovieDetail> {
         return  movieRepository.getMovieDetails()
+    }
+
+    fun detailCall(query: String?){
+        movieRepository.detailCall(query!!)
     }
 }

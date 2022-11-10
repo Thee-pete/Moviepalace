@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_item.view.*
 import java.lang.reflect.Type
 
-class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class RecyclerViewAdapter(val ctx: Context): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
 
     private var movies: List<Movie>? = null
     fun setMovies(movies: List<Movie>?){
@@ -30,32 +30,39 @@ class RecyclerViewAdapter(): RecyclerView.Adapter<RecyclerViewAdapter.MyViewHold
 
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
-
-
         val poster_path = view.poster_path
         val original_title = view.original_title
         val release_date = view.release_date
-        fun bind(movie: Movie){
 
-            original_title.text = movie.original_title
-            release_date.text = movie.release_date
-
-            Glide.with(poster_path)
-                .load(movie.poster_path)
-                .into(poster_path)
-
-        itemView.setOnClickListener{
-            
-        }
-
-
-
-        }
 
     }
 
     override fun onBindViewHolder(holder: RecyclerViewAdapter.MyViewHolder, position: Int){
-        holder.bind(movies?.get(position)!!)
+        //holder.bind(movies?.get(position)!!)
+
+        val movie = movies?.get(position)
+
+        if (movie != null) {
+            holder.original_title.text = movie.original_title
+        }
+        if (movie != null) {
+            holder.release_date.text = movie.release_date
+        }
+
+        if (movie != null) {
+            Glide.with(holder.poster_path)
+                .load(movie.poster_path)
+                .into(holder.poster_path)
+        }
+
+
+
+        holder.itemView.setOnClickListener{
+                val intent = Intent(ctx,MovieDetailActivity::class.java)
+                val movieId:String = movie?.id.toString()
+                intent.putExtra("movieId",movieId)
+                ctx.startActivity(intent)
+        }
 
 
     }

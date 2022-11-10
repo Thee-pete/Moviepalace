@@ -49,7 +49,7 @@ private val roomDao: RoomDao) {
 
     }
     fun detailCall(query: String?){
-        val call: Call<MovieDetail> = apiInterface.getMovieDetails("1",query!!)
+        val call: Call<MovieDetail> = apiInterface.getMovieDetails("movieId",query!!)
         call.enqueue(object :Callback<MovieDetail>{
             override fun onResponse(
                 call: Call<MovieDetail>,

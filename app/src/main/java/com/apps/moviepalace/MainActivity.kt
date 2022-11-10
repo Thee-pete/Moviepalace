@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.apps.moviepalace.adapter.RecyclerViewAdapter
 import com.apps.moviepalace.model.Movie
 import com.apps.moviepalace.viewmodel.MainActivityViewModel
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.apply{
              layoutManager = LinearLayoutManager(this@MainActivity)
 
-            recyclerViewAdapter = RecyclerViewAdapter()
+            recyclerViewAdapter = RecyclerViewAdapter(applicationContext)
             adapter = recyclerViewAdapter
 
         }

@@ -12,6 +12,7 @@ class MovieDetailActivity : AppCompatActivity() {
     lateinit var titletxt: TextView
     lateinit var overviewtxt: TextView
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detail)
@@ -24,6 +25,7 @@ class MovieDetailActivity : AppCompatActivity() {
     }
     fun initViewModel(){
         val viewModel =  ViewModelProvider(this).get(MovieDetailViewModel::class.java)
+        viewModel.detailCall(intent.getStringExtra("movieId").toString())
         viewModel.getMovieDetails().observe(this, Observer {
             titletxt.text = it.originalTitle
             overviewtxt.text = it.overview
