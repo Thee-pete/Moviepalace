@@ -25,7 +25,7 @@ class MovieDetailActivity : AppCompatActivity() {
     }
     fun initViewModel(){
         val viewModel =  ViewModelProvider(this).get(MovieDetailViewModel::class.java)
-        viewModel.detailCall(intent.getStringExtra("movieId").toString())
+        viewModel.detailCall(intent.getStringExtra("movieId").toString(), "en-Us")
         viewModel.getMovieDetails().observe(this, Observer {
             titletxt.text = it.originalTitle
             overviewtxt.text = it.overview

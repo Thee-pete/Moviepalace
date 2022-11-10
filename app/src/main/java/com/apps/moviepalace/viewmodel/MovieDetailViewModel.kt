@@ -15,7 +15,7 @@ class MovieDetailViewModel  @Inject constructor(private val movieRepository: Mov
         return  movieRepository.getMovieDetails()
     }
 
-    fun detailCall(query: String?){
-        movieRepository.detailCall(query!!)
+    fun detailCall(path: String?,query: String?){
+        movieRepository.detailCall(path!!,query!!)
     }
 }
