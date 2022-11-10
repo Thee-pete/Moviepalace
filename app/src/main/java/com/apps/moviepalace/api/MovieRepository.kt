@@ -18,10 +18,9 @@ private val roomDao: RoomDao) {
     fun insertMovies(movie: Movie){
         roomDao.insertMovies(movie)
     }
-
     fun apiCall(query: String?){
         val call: Call<MoviesList> = apiInterface.getMovies(query!!)
-        call?.enqueue(object :Callback<MoviesList>{
+        call.enqueue(object :Callback<MoviesList>{
             override fun onResponse(
                 call: Call<MoviesList>,
                 response: Response<MoviesList>
@@ -29,7 +28,7 @@ private val roomDao: RoomDao) {
                 if (response.isSuccessful){
                     response.body()?.movies?.forEach{
                         insertMovies(it)
-                }
+                    }
 
                 }
             }

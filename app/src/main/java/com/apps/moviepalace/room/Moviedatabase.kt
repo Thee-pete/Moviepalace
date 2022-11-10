@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.apps.moviepalace.model.Movie
 
-@Database(entities = [Movie::class], version = 1)
+@Database(entities = [Movie::class], version = 1,exportSchema = false)
 abstract class Moviedatabase: RoomDatabase() {
 
     abstract fun movieDao(): RoomDao

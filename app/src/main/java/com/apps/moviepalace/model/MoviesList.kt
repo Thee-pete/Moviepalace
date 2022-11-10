@@ -1,4 +1,3 @@
 package com.apps.moviepalace.model
 
-data class MoviesList(val movies: List<Movie>) {
-}
+data class MoviesList(val movies: List<Movie>)
