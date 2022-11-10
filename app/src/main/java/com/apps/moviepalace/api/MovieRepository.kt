@@ -1,5 +1,6 @@
 package com.apps.moviepalace.api
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.apps.moviepalace.model.Movie
 import com.apps.moviepalace.model.MovieDetail
