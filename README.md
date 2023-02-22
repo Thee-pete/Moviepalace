@@ -8,7 +8,7 @@ This is a simple application that utilises themoviedb Api. It displays a list of
 - Dagger
 - Kotlin Coroutines
 
-# MIT License
+# MIT License.
 
 Copyright (c) 2022 Peter Ndumia
 
